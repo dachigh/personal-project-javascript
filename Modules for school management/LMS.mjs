@@ -10,7 +10,14 @@ export class Subject{
     this.#subjectid = String(counter++);
     this.title = subject.title;
     this.lessons = subject.lessons;
-    if (this.description) {this.description = subject.description};
+    if (subject.description) 
+    {
+        this.description = subject.description;
+    }
+    else
+    {
+        this.description = null;
+    }
 };
 
      get id() {  
