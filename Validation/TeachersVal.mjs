@@ -1,6 +1,11 @@
 export function validateTeachers(teacher){
     const sizeObj = Object.getOwnPropertyNames(teacher).length; 
 //Object Property Validation;
+        if (typeof teacher !== 'object' || (Array.isArray(teacher)))
+        {
+            throw new Error('Parametr must be Object');
+        }
+
         if (sizeObj < 6 || sizeObj > 7){
             throw new Error('Object must have min 6 and max 7 properties');
         };
