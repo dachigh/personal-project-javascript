@@ -105,6 +105,40 @@ let TeacherObj2 = {
   ],
 }
 
+let updatedProfile = {
+  name: {
+    first: "dac",
+    last: "gin"
+  },
+  dateOfBirth: "05-23-2005",
+  emails: [
+    {
+      email: "asd.vestibulum.ante@icloud.net",
+      primary: false
+    },
+    {
+      email: "lsax.molestie.orci@protonmail.com",
+      primary: true
+    }      
+  ],
+  phones: [
+    {
+      phone: "+995 (32) 573-492-787",
+      primary: true
+    },
+    {
+      phone: "+995 (32) 593-254-456",
+      primary: false
+    }
+  ],
+  sex: "male",
+  subjects: [
+    {
+      subject: 'Crypto'
+    }
+  ],
+  description: "Lazy Teacher",
+}
 
 
 const teachers = new Teachers();
@@ -113,3 +147,17 @@ const teacherId1 = teachers.add(TeacherObj1);
 const teacherId2 = teachers.add(TeacherObj2);
 
 console.log(teacherId1,teacherId2);
+
+console.log(teachers.read(teacherId1));
+console.log(teachers.read(teacherId2));
+
+let updatedProfile1 = [];
+// will update Teacher. This method should use the same validation as a add method
+const teacherId = teachers.update(teacherId1, updatedProfile1)
+console.log(teachers.read(teacherId1));
+
+// will remove teacher
+teachers.remove(teacherId1)
+
+console.log(teachers.read(teacherId1));
+console.log(teachers.read(teacherId2));
