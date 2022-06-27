@@ -14,7 +14,7 @@ export class Teachers{
 
         read(id){
             if (typeof id !== 'string'){
-                throw new TypeError("Teachers_ID must be string type AND is required");
+                throw new TypeError("Teachers_ID must be string type AND is required parametr");
             }
             if (id.length === 0){
                 throw new TypeError("Teachers_ID must not be EMPTY string");
@@ -24,8 +24,15 @@ export class Teachers{
 
 
         update(id, updatedTeacher){
+            if (typeof id !== 'string'){
+                throw new TypeError("Teachers_ID must be string type AND is required parametr");
+            }
+            if (id.length === 0){
+                throw new TypeError("Teachers_ID must not be EMPTY string ");
+            }
             validateTeachers(updatedTeacher);
             const foundTeacher = this.read(id);
+            if (foundTeacher === null){throw  new Error("Id dont match with Teachers Data Base")}
             delete foundTeacher.id;
             this.#teachers.set(id, {
                 ...foundTeacher,
@@ -34,13 +41,18 @@ export class Teachers{
         }
 
         remove(id){
+            if (typeof id !== 'string'){
+                throw new TypeError("Teachers_ID must be string type AND is required parametr");
+            }
+            if (id.length === 0){
+                throw new TypeError("Teachers_ID must not be EMPTY string ");
+            }
+
             if(!this.#teachers.has(id)){
-                throw new Error('Doesn\'t exist this Teacher')
+                throw new Error(`Doesn\'t exist this Teacher on ${id}`)
             }
             this.#teachers.delete(id);
         }
-
-
 
 }
 
