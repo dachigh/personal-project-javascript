@@ -1,11 +1,11 @@
 export function validateTeachers(teacher){
-    const sizeObj = Object.getOwnPropertyNames(teacher).length; 
+
 //Object Property Validation;
         if (typeof teacher !== 'object' || (Array.isArray(teacher)))
         {
             throw new Error('Parametr must be Object');
         }
-
+        const sizeObj = Object.getOwnPropertyNames(teacher).length; 
         if (sizeObj < 6 || sizeObj > 7){
             throw new Error('Object must have min 6 and max 7 properties');
         };
@@ -225,4 +225,19 @@ for (let i = 0; i < teacher.subjects.length; i++){
         throw new TypeError("In subjects: subject: property value shouldn\'t be EMPTY string")   
     }
 }
+if (teacher.hasOwnProperty('description')){
+    
+    if (typeof teacher.description !== 'string')
+    {
+        throw new TypeError("Description Prototype should be string type")
+    }
+    if (teacher.description.length === 0)
+    {
+        throw new TypeError("Description Prototype shouldn\'t be EMPTY string")
+    }
+}
+
+
+
+
 }
