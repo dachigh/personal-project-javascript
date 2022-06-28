@@ -32,7 +32,6 @@ export class Groups{
         }
         validateGroup(pupil);
         this.#groups.get(groupId).pupils.push(pupil);
-        console.log(this.#groups)
     }
 
     read(groupId){
