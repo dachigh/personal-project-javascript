@@ -9,8 +9,9 @@ export class Groups{
         if ((typeof room !== 'number') || !(Number.isInteger(room)) || (room < 0)){
             throw new TypeError('Parametr should be only integer AND must be positive')
         }
+        const pupils = new Array();
         const id = String(this.#counter++);
-        this.groupObj = {id,room};
+        this.groupObj = {id,room,pupils};
         this.#groups.set(id, this.groupObj);
         return id;
         
@@ -30,29 +31,9 @@ export class Groups{
             throw new Error('Dont exist this group')
         }
         validateGroup(pupil);
-        
-        if (this.#arrayPupil.length === 0)
-        {
-            this.#arrayPupil.push(pupil)
-            this.#CheckGroupID = groupId;
-        } else{
-            // check if not same pupils added then add
-            const newpupil = JSON.stringify(pupil);
-            for (let i = 0; i < this.#arrayPupil.length; i++){
-                let temp = JSON.stringify(this.#arrayPupil[i])
-                if (temp !== newpupil && this.#CheckGroupID === groupId){
-                    this.#arrayPupil.push(pupil);
-                }    
-            }
-        }
-            let room = this.#groups.get(groupId).room;
-            let pupils = this.#arrayPupil;
-            let id = groupId;
-            this.#PupilObject = {id,room,pupils}
-            this.#groups.set(id,this.#PupilObject );
-       
-        }
-
+        this.#groups.get(groupId).pupils.push(pupil);
+        console.log(this.#groups)
+    }
 
     read(groupId){
         if (typeof groupId !== 'string')
