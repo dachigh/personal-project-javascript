@@ -38,9 +38,15 @@ export class LMS{
         let subjectObj = { ...objID,...tempObj};
 
         this.#LMSid = String(this.#counter++);
+ 
         this.#lms.set(this.#LMSid, subjectObj);
+        this.lms = this.#lms;
     }
    
+    data(){
+        return this.#lms;
+     }
+
     verify(subjectClass){
         checkInstanceOfSubject(subjectClass);
 

@@ -12,6 +12,11 @@ export class Teachers{
             return id;
         }
 
+        data(){
+            return this.#teachers;
+         }
+     
+
         read(id){
             if (typeof id !== 'string'){
                 throw new TypeError("Teachers_ID must be string type AND is required parametr");

@@ -11,12 +11,16 @@ export class Groups{
         }
         const pupils = new Array();
         const id = String(this.#counter++);
-        this.groupObj = {id,room,pupils};
-        this.#groups.set(id, this.groupObj);
+        //this.group = {id,room,pupils};
+        this.#groups.set(id, {id,room,pupils});
+        //this.GroupList = this.#groups;
         return id;
         
     }
 
+    data(){
+       return this.#groups;
+    }
 
     addPupil(groupId,pupil){
         if (typeof groupId !== 'string')
@@ -50,11 +54,7 @@ export class Groups{
     }
 
     
-    readAll(){
-        if(arguments.length) throw new Error('argument was passed')
-        return [...this.#groups.values()];
-    }
-    
+
 
     removePupil(groupId, pupilId){
         if(!this.#groups.has(groupId)){
@@ -129,7 +129,15 @@ export class Groups{
 
 
     }
-
+    readAll(){
+        if(arguments.length) throw new Error('argument was passed')
+        return [...this.#groups.values()];
+        
+    }
+    // constructor(){
+    //     this.GroupList = this.#groups;
+    // }
+    
 
 
     }
