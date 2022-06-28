@@ -11,9 +11,7 @@ export class Groups{
         }
         const pupils = new Array();
         const id = String(this.#counter++);
-        //this.group = {id,room,pupils};
         this.#groups.set(id, {id,room,pupils});
-        //this.GroupList = this.#groups;
         return id;
         
     }
@@ -47,6 +45,9 @@ export class Groups{
         if(groupId === ''){
             throw new Error("Id param shouldn\'t be EMPTY string")
         }
+        if(!this.#groups.has(groupId)){
+            throw new Error('Dont exist this group')
+        }
         
         const foundGroup = this.#groups.get(groupId);
         const pupils = this.#arrayPupil;
@@ -57,9 +58,7 @@ export class Groups{
 
 
     removePupil(groupId, pupilId){
-        if(!this.#groups.has(groupId)){
-            throw new Error('Dont exist this group')
-        }
+
         if (typeof groupId !== 'string')
         {
             throw new TypeError("Id param should by string type")
@@ -67,6 +66,9 @@ export class Groups{
 
         if(groupId === ''){
             throw new Error("Id param shouldn\'t be EMPTY string")
+        }
+        if(!this.#groups.has(groupId)){
+            throw new Error('Dont exist this group')
         }
         if (typeof pupilId !== 'string')
         {
@@ -134,11 +136,6 @@ export class Groups{
         return [...this.#groups.values()];
         
     }
-    // constructor(){
-    //     this.GroupList = this.#groups;
-    // }
-    
-
 
     }
 
