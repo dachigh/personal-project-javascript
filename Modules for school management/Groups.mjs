@@ -1,8 +1,10 @@
+import { validateGroup } from "../Validation/GroupVal.mjs"; 
 export class Groups{
     #counter = 1;
     #groups = new Map();
     #arrayPupil = new Array();
     #PupilObject = {}
+    #CheckGroupID = 0;
     add(room){
         if ((typeof room !== 'number') || !(Number.isInteger(room)) || (room < 0)){
             throw new TypeError('Parametr should be only integer AND must be positive')
@@ -24,23 +26,31 @@ export class Groups{
         if(groupId === ''){
             throw new Error("Id param shouldn\'t be EMPTY string")
         }
-        //need to check if same pupil in parametr 2 times
-        //validate pupil
-        //rooms check to seperatly
-
+        if(!this.#groups.has(groupId)){
+            throw new Error('Dont exist this group')
+        }
+        validateGroup(pupil);
+        
         if (this.#arrayPupil.length === 0)
         {
-            this.#arrayPupil.push(pupil);
-        }else{
-            this.#arrayPupil.push(pupil);
+            this.#arrayPupil.push(pupil)
+            this.#CheckGroupID = groupId;
+        } else{
+            // check if not same pupils added then add
+            const newpupil = JSON.stringify(pupil);
+            for (let i = 0; i < this.#arrayPupil.length; i++){
+                let temp = JSON.stringify(this.#arrayPupil[i])
+                if (temp !== newpupil && this.#CheckGroupID === groupId){
+                    this.#arrayPupil.push(pupil);
+                }    
+            }
         }
-        let room = this.#groups.get(groupId).room;
-         let pupils = this.#arrayPupil;
-         let id = groupId;
-         this.#PupilObject = {id,room,pupils}
-        this.#groups.set(id,this.#PupilObject );
-        return id;
-
+            let room = this.#groups.get(groupId).room;
+            let pupils = this.#arrayPupil;
+            let id = groupId;
+            this.#PupilObject = {id,room,pupils}
+            this.#groups.set(id,this.#PupilObject );
+       
         }
 
 
@@ -86,6 +96,7 @@ export class Groups{
         if(pupilId === ''){
             throw new Error("Id param shouldn\'t be EMPTY string")
         }
+        
 
         const sizeArr = this.#groups.get(groupId).pupils.length;
         const array = this.#groups.get(groupId).pupils;
