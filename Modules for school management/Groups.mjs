@@ -121,15 +121,8 @@ export class Groups{
        if (typeof obj.room !== 'number' || !(Number.isInteger(obj.room)) || (obj.room < 0)){
         throw new TypeError('{ room: "number"} property must be interger');
        }
-
-       const foundGroup = this.read(groupId);
-       delete foundGroup.id;
-       this.#groups.set(groupId, {
-           ...foundGroup,
-           ...obj
-       });
-
-
+       let temp = obj.room;
+        this.#groups.get(groupId).room = temp;
     }
     readAll(){
         if(arguments.length) throw new Error('argument was passed')
