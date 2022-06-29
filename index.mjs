@@ -353,7 +353,7 @@ const gradebook = gradebooks.add(groupId1);
   };
 
   const record1 = {
-    pupilId: pupilID1.id,
+    pupilId: pupilID2.id,
     teacherId: teacherId1,
     subjectId: history.id,
     lesson: 1,
