@@ -2,12 +2,12 @@ import {validateSubject} from "../Validation/SubjectVal.mjs";
 
 import {checkInstanceOfSubject} from "../Validation/LMSval.mjs";
 
-let counter = 0;
 export class Subject{
+    static  #counter = 0;
     #subjectid = 0;
     constructor(subject){
     validateSubject(subject);
-    this.#subjectid = String(counter++);
+    this.#subjectid = String(++Subject.#counter);
     this.title = subject.title;
     this.lessons = subject.lessons;
     if (subject.description) 
@@ -40,7 +40,6 @@ export class LMS{
         this.#LMSid = String(this.#counter++);
  
         this.#lms.set(this.#LMSid, subjectObj);
-        this.lms = this.#lms;
     }
    
     data(){
@@ -49,13 +48,7 @@ export class LMS{
 
     verify(subjectClass){
         checkInstanceOfSubject(subjectClass);
-
-            if (this.#lms.has(subjectClass.id))
-            {
-                return true;
-            }else{
-                return false;
-            }
+            return this.#lms.has(subjectClass.id);
     }
 
     remove(subjectClass){

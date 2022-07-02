@@ -48,10 +48,7 @@ export class Groups{
         if(!this.#groups.has(groupId)){
             throw new Error('Dont exist this group')
         }
-        
-        const foundGroup = this.#groups.get(groupId);
-        const pupils = this.#arrayPupil;
-        return foundGroup ? {...foundGroup,pupils} : null; 
+        return this.#groups.get(groupId)
     }
 
     
@@ -88,13 +85,13 @@ export class Groups{
             if (array[i].id === pupilId){
                 index = i;
                 counter++;
+                array.splice(index,1);
                 break;
             }
         }
         if (counter === 0){
             throw new Error(`Doesn't exit this pupil with id =  ${pupilId} in the ${groupId} group`)
         }
-        array.splice(index,1);
     
     
     }
