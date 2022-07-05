@@ -3,6 +3,7 @@ import { LMS } from "./lms";
 import { Pupils } from "./pupils";
 import { Teachers } from "./teachers";
 import { Groups } from "./group";
+import { Gradebooks } from "./gradebooks";
         //Instances of Subject class
 const history1 = new Subject({
 title: 'History',
@@ -25,9 +26,9 @@ lessons: 50,
 const h_id = history1.subject_ID;
 const m_id = math.subject_ID;
 const b_id = biology.subject_ID;
-console.log("History ID = ",h_id)
-console.log("Math ID = ",m_id)
-console.log("Biology ID = ",b_id)
+////console.log("History ID = ",h_id)
+////console.log("Math ID = ",m_id)
+////console.log("Biology ID = ",b_id)
                 
 
 
@@ -44,16 +45,16 @@ const test = 1;
 const h_ver = lms.verify(history1); //true
 const m_ver  = lms.verify(math); //true
 const b_ver  = lms.verify(biology); //true
-console.log("History Verify = ",h_ver)
-console.log("Math Verify = ",m_ver)
-console.log("Biology Verify = ",b_ver)
+////console.log("History Verify = ",h_ver)
+////console.log("Math Verify = ",m_ver)
+////console.log("Biology Verify = ",b_ver)
 
       //Just remove subject from LMS
 //lms.remove(math); 
 
   //List all Data in LMS
 const lmsList = lms.readAll();
-console.log("LMS readALL = ",lmsList);
+////console.log("LMS readALL = ",lmsList);
 
 
  //Creating  Pupils test data
@@ -208,27 +209,27 @@ const p_4 = pupilID4.id;
 const p_5 = pupilID5.id;
 const p_6 = pupilID6.id;
 
-console.log('\nPupil_1 ID = ',p_1);
-console.log('Pupil_2 ID = ',p_2);
-console.log('Pupil_3 ID = ',p_3);
-console.log('Pupil_4 ID = ',p_4);
-console.log('Pupil_5 ID = ',p_5);
-console.log('Pupil_6 ID = ',p_6);
+////console.log('\nPupil_1 ID = ',p_1);
+////console.log('Pupil_2 ID = ',p_2);
+////console.log('Pupil_3 ID = ',p_3);
+////console.log('Pupil_4 ID = ',p_4);
+////console.log('Pupil_5 ID = ',p_5);
+////console.log('Pupil_6 ID = ',p_6);
 
      
           //Read data by pupil ID,return obj
-console.log("Read Pupil_1 Data = ",pupils.read(pupilID1.id));
-console.log("Read Pupil_2 Data = ",pupils.read(pupilID2.id));
-console.log("Read Pupil_3 Data = ",pupils.read(pupilID3.id));
-console.log("Read Pupil_4 Data = ",pupils.read(pupilID4.id));
-console.log("Read Pupil_5 Data = ",pupils.read(pupilID5.id));
-console.log("Read Pupil_6 Data = ",pupils.read(pupilID6.id));
+////console.log("Read Pupil_1 Data = ",pupils.read(pupilID1.id));
+////console.log("Read Pupil_2 Data = ",pupils.read(pupilID2.id));
+////console.log("Read Pupil_3 Data = ",pupils.read(pupilID3.id));
+////console.log("Read Pupil_4 Data = ",pupils.read(pupilID4.id));
+////console.log("Read Pupil_5 Data = ",pupils.read(pupilID5.id));
+//console.log("Read Pupil_6 Data = ",pupils.read(pupilID6.id));
           
        //Update specific pupil data by id,new pupil obj 
 pupils.update(pupilID1.id, updatedProfilePupils);
-console.log("updated Pupil_1 Data = ",pupils.read(pupilID1.id));
+//console.log("updated Pupil_1 Data = ",pupils.read(pupilID1.id));
 //Removes Pupils by id true or false
-//console.log(pupils.remove(pupilID6.id));
+////console.log(pupils.remove(pupilID6.id));
 
 
 
@@ -382,30 +383,30 @@ console.log("updated Pupil_1 Data = ",pupils.read(pupilID1.id));
     const teacherID1 = teachers.add(TeacherObj1); // return id
     const teacherID2 = teachers.add(TeacherObj2); 
     const teacherID3 = teachers.add(TeacherObj3);
-    console.log("\nteacherID1  = ",teacherID1)
-    console.log('teacherID2  = ',teacherID2);
-    console.log('teacherID3  = ',teacherID3);
+    //console.log("\nteacherID1  = ",teacherID1)
+    //console.log('teacherID2  = ',teacherID2);
+    //console.log('teacherID3  = ',teacherID3);
     
     
         //Reading Specific Data Of Teachers by ID
 //const t_test = teachers.read('5'); //return teacher not found
-//console.log(t_test)
+////console.log(t_test)
 const t_one = teachers.read(teacherID1); //return data
 const t_two = teachers.read(teacherID2); //return data
 const t_three = teachers.read(teacherID3); //return data
-console.log('Teacher #1 = ',t_one);
-console.log('Teacher #2 =',t_two);
-console.log('Teacher #3 =',t_three);
+//console.log('Teacher #1 = ',t_one);
+//console.log('Teacher #2 =',t_two);
+//console.log('Teacher #3 =',t_three);
     
 
 //Update Date of Teachers by ID;
   const teacherId = teachers.update(teacherID1, updatedProfileTeacher)
-console.log(teachers.read(teacherID1));
+//console.log(teachers.read(teacherID1));
 
 
 
         //Return Boolean
-//console.log(teachers.remove(teacherID1));
+////console.log(teachers.remove(teacherID1));
 
 
 
@@ -421,9 +422,9 @@ const groups = new Groups();
 const groupId1 = groups.add(room1);
 const groupId2 = groups.add(room2);
 const groupId3 = groups.add(room3);
-console.log("\nGroup id 1 = ",groupId1);
-console.log("Group id 2 = ",groupId2);
-console.log("Group id 3 = ",groupId3);
+//console.log("\nGroup id 1 = ",groupId1);
+//console.log("Group id 2 = ",groupId2);
+//console.log("Group id 3 = ",groupId3);
 
 
     // Add this pupil to this group
@@ -437,12 +438,12 @@ groups.addPupil(groupId3, pupilID5);
 groups.addPupil(groupId3, pupilID6);
  
   //Read Group Data by id 
-console.log("Group 1 = ",groups.read(groupId1));
-console.log("Group 2 = ",groups.read(groupId2));
-console.log("Group 3 = ",groups.read(groupId3));
+//console.log("Group 1 = ",groups.read(groupId1));
+//console.log("Group 2 = ",groups.read(groupId2));
+//console.log("Group 3 = ",groups.read(groupId3));
   
     //List All data in Group
-console.log("Group readALL = ",groups.readAll());
+//console.log("Group readALL = ",groups.readAll());
 
 
       //Remove this pupil from this group
@@ -453,4 +454,95 @@ console.log("Group readALL = ",groups.readAll());
 groups.update(groupId1, {
    room: 237
  });
- console.log("Update Room Group readALL = ",groups.readAll());
+ //console.log("Update Room Group readALL = ",groups.readAll());
+
+ 
+    //Creating Instance of GradeBooks
+    const gradebooks = new Gradebooks(groups, teachers, lms);
+    
+          //Add a new gradebook.
+    const gradebook1 = gradebooks.add(groupId1);
+    const gradebook2 = gradebooks.add(groupId2);
+    const gradebook3 = gradebooks.add(groupId3);
+    
+      //Creating Obj for records
+      const record1 = {
+        pupilId: pupilID1.id,
+        teacherId: teacherID1,
+        subjectId: history1.subject_ID,
+        lesson: 1,
+        mark: 2
+      };
+    
+      const record2 = {
+        pupilId: pupilID2.id,
+        teacherId: teacherID1,
+        subjectId: history1.subject_ID,
+        lesson: 1,
+        mark: 2
+      };
+
+      const record3 = {
+        pupilId: pupilID3.id,
+        teacherId: teacherID2,
+        subjectId: math.id,
+        lesson: 1,
+        mark: 10
+      };
+
+      const record4 = {
+        pupilId: pupilID4.id,
+        teacherId: teacherID2,
+        subjectId: math.id,
+        lesson: 1,
+        mark: 10
+      };
+
+
+      const record5 = {
+        pupilId: pupilID5.id,
+        teacherId: teacherID3,
+        subjectId: biology.id,
+        lesson: 1,
+        mark: 5
+      };
+
+      const record6 = {
+        pupilId: pupilID6.id,
+        teacherId: teacherID3,
+        subjectId: biology.id,
+        lesson: 1,
+        mark: 10
+      };
+
+
+        //Adding records;
+gradebooks.addRecord(gradebook1, record1);
+gradebooks.addRecord(gradebook1, record2);
+
+gradebooks.addRecord(gradebook2, record3);
+gradebooks.addRecord(gradebook2, record4)
+
+gradebooks.addRecord(gradebook3, record5)
+gradebooks.addRecord(gradebook3, record6)
+
+
+  //Read data about specific pupil
+console.log("GradeBook of Pupil 1 = ",gradebooks.read(gradebook1, pupilID1.id));
+console.log("GradeBook of Pupil 2 = ",gradebooks.read(gradebook1, pupilID2.id));
+
+////console.log("GradeBook of Pupil  = ",gradebooks.read(gradebook2, pupilID3.id));
+////console.log("GradeBook of Pupil  = ",gradebooks.read(gradebook2, pupilID4.id));
+
+////console.log("GradeBook of Pupil  = ",gradebooks.read(gradebook3, pupilID5.id));
+////console.log("GradeBook of Pupil  = ",gradebooks.read(gradebook3, pupilID6.id));
+ 
+
+  //List all data inside gradobook
+////console.log("ReadAll of data in gradebook 1 = ",gradebooks.readAll(gradebook1)); 
+////console.log("ReadAll of data in gradebook 2 = ",gradebooks.readAll(gradebook2)); 
+////console.log("ReadAll of data in gradebook 3 = ",gradebooks.readAll(gradebook3)); 
+  
+  // Destroy all data inside this gradebook
+gradebooks.clear();
+  

@@ -1,12 +1,17 @@
 import {Pupil,Community} from "./abstract";
 
-interface Teacher extends Pupil{
+export interface Teacher{
+    name: {first: string,last: string},
+    dateOfBirth: string,
+    phones:{phone: string,primary: boolean}[],
+    sex: string,
+    description?: string
     emails: 
-        {
+    {
           email: string,
           primary: boolean
-        }[],
-        subjects:{subject: string}[]
+    }[],
+    subjects:{subject: string}[]
 }
 
 
@@ -45,6 +50,4 @@ export class Teachers extends Community{
             }
         }
         
-
-
 }
