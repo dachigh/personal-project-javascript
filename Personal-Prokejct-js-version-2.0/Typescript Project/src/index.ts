@@ -2,6 +2,7 @@ import { Subject } from "./subject";
 import { LMS } from "./lms";
 import { Pupils } from "./pupils";
 import { Teachers } from "./teachers";
+import { Groups } from "./group";
         //Instances of Subject class
 const history1 = new Subject({
 title: 'History',
@@ -404,4 +405,52 @@ console.log(teachers.read(teacherID1));
 
 
         //Return Boolean
-console.log(teachers.remove(teacherID1));
+//console.log(teachers.remove(teacherID1));
+
+
+
+          //Create Group class instances and Rooms
+const room1 = 111; 
+const room2 = 222;
+const room3 = 333
+const groups = new Groups();
+
+    // Create a new group. 
+    //add methods takes integer as a parameter. 
+    //returns id of group
+const groupId1 = groups.add(room1);
+const groupId2 = groups.add(room2);
+const groupId3 = groups.add(room3);
+console.log("\nGroup id 1 = ",groupId1);
+console.log("Group id 2 = ",groupId2);
+console.log("Group id 3 = ",groupId3);
+
+
+    // Add this pupil to this group
+groups.addPupil(groupId1, pupilID1);
+groups.addPupil(groupId1, pupilID2);
+
+groups.addPupil(groupId2, pupilID3);
+groups.addPupil(groupId2, pupilID4);
+
+groups.addPupil(groupId3, pupilID5);
+groups.addPupil(groupId3, pupilID6);
+ 
+  //Read Group Data by id 
+console.log("Group 1 = ",groups.read(groupId1));
+console.log("Group 2 = ",groups.read(groupId2));
+console.log("Group 3 = ",groups.read(groupId3));
+  
+    //List All data in Group
+console.log("Group readALL = ",groups.readAll());
+
+
+      //Remove this pupil from this group
+//groups.removePupil(groupId1, pupilID1.id);
+
+
+      // Update room for group by id,{}
+groups.update(groupId1, {
+   room: 237
+ });
+ console.log("Update Room Group readALL = ",groups.readAll());
