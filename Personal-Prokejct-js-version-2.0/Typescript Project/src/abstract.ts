@@ -25,7 +25,7 @@ export abstract class Community{
         return {}
     };
 
-    public update(id:string,updatedProfile:object):void{
+    public update(id:string,updatedProfile:Pupil):void{
     }
     
     public remove(id:string):boolean{

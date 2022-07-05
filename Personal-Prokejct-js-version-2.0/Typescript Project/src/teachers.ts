@@ -30,7 +30,7 @@ export class Teachers extends Community{
             }
         }
 
-        public update(id: string, updatedProfile: object): void {
+        public update(id: string, updatedProfile: Teacher): void {
             if (!this.teachersMap.has(id)){
                 throw new Error(`Teacher on id ${id} doesn't exist`);
             }

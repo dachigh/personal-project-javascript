@@ -6,7 +6,7 @@ export class LMS {
     public lmsMap:Map<string, object> = new Map();
 
     public add(subject:Subject):string{
-        this.lmsMap.set(subject.id,{id: subject.id,...subject})
+        this.lmsMap.set(subject.id,{...subject,id: subject.id})
         return subject.id;
     }
     remove(subject:Subject):void{
