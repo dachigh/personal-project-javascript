@@ -17,6 +17,7 @@ export class Pupils extends Community{
 
     get id():string{
         return this.pupilID;
+    
     }
     
     public read(id: string): object {

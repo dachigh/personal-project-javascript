@@ -9,6 +9,7 @@ lessons: 24,
 description: 'The only source of knowledge is experience'
 });
 
+
 const math = new Subject({
 title: 'Math',
 lessons: 20,

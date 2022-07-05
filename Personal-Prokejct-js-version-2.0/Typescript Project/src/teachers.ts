@@ -14,6 +14,7 @@ export class Teachers extends Community{
     public teachersMap: Map<string, object> = new Map();
     static counter = 0;
 
+    
         public add(teacher: Teacher): string{
             const id = String(++Teachers.counter);
             this.teachersMap.set(id,teacher);
